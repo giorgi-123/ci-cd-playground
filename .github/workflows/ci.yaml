@@ -49,10 +49,17 @@ jobs:
           python-version: ${{matrix.python-version}}
 
       - name: Install Dependencies 
-        run: pip install pytest 
+        run: pip install pytest pytest-cov
 
       - name: Run tests
-        run: pytest
+        run: pytest --cov=. --cov-report=html
+
+      - name: Upload coverage cov report 
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report-${{matrix.python-version}}
+          path: ./htmlcov
+          retention-days: 30
 
 
 # jobs:
