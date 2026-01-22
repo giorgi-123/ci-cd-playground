@@ -34,11 +34,11 @@ jobs:
   
   test:
     needs: lint
-    runs-on: ${{matrix.os}}
     strategy:
       matrix:
         os: [ubuntu-latest] # we can also pass windows-latest, etc...
         python-version: ["3.10", "3.11", "3.12"]
+    runs-on: ${{matrix.os}}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
