@@ -1,7 +1,18 @@
 name: My First CI
 
 on:
+  # Run on pushes to main or develop
   push:
+    branches:
+      - main
+      - develop
+      - feature/*  # This line (if applied) makes sure that ci workflow will run on every branch that starts with feature/...
+  # Run on pull requests targeting main
+  # Runs when PR is opened not when it is approved!
+  pull_request:
+    branches:
+      - main
+      - develop
 
 jobs:
   run-python:
