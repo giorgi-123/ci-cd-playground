@@ -1,4 +1,4 @@
-from main import add, sub
+from ci_cd_playground.main import add, sub
 
 
 def test_add():
