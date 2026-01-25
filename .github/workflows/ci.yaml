@@ -7,6 +7,8 @@ on:
       - main
       - develop
       - feature/*  # This line (if applied) makes sure that ci workflow will run on every branch that starts with feature/...
+    tags:
+      - "v*"
   # Run on pull requests targeting main
   # Runs when PR is opened not when it is approved!
   pull_request:
@@ -87,6 +89,23 @@ jobs:
           name: package
           path: ./dist
           retention-days: 30
+  deploy:
+    needs: build
+    if: github.ref_type == 'tag'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download package
+        uses: actions/download-artifact@v4
+        with:
+          name: package
+          path: ./package
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ./package/*
+
 
 
 # jobs:
