@@ -1,4 +1,4 @@
-name: My First CI
+name: CI/CD
 
 on:
   # Run on pushes to main or develop
