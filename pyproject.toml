@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "ci-cd-playground"
 version = "0.1.0"
 description = "Learning CI/CD with GitHub Actions"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 
 [project.optional-dependencies]
 dev = [
@@ -14,6 +14,7 @@ dev = [
     "pytest-cov",
     "ruff"
 ]
+build = ["build"]
 
-[tools.setuptools.packages.find]
+[tool.setuptools.packages.find]
 where = ["src"]
