@@ -8,5 +8,12 @@ version = "0.1.0"
 description = "Learning CI/CD with GitHub Actions"
 requires-python = ">=3.12"
 
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "ruff"
+]
+
 [tools.setuptools.packages.find]
 where = ["src"]
