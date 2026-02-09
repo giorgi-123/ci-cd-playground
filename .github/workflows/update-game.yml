@@ -5,6 +5,9 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update-game:
     runs-on: ubuntu-latest
@@ -13,6 +16,6 @@ jobs:
       
       - uses: czl9707/gh-space-shooter@v1
         with:
-          github-token: ${{ secrets.GITHUB-TOKEN }}
+          github-token: ${{ secrets.GAME_TOKEN }}
           output-path: 'game.gif'
           strategy: 'random'
