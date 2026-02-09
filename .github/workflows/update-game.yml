@@ -3,7 +3,7 @@ name: Update Space Shooter Game
 on:
   schedule:
     - cron: '0 0 * * *'
-    workflow_displatch:
+  workflow_displatch:
 
 jobs:
   update-game:
